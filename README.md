@@ -2,7 +2,7 @@
 
 Integrante n° 1: Cabrera Juan Gabriel, DNI: 39.448.561, cabrerajuangab@gmail.com, https://github.com/cjuangab/Intro_Programacion.git
 
-Integrante n°2: Santarena Maria Florencia, DNI: 38,909,688, florsantarena@gmail.com, https://github.com/mfsantarena/actividadesispc.git
+Integrante n°2: Santarena Maria Florencia, DNI: 38.909.688, florsantarena@gmail.com, https://github.com/mfsantarena/actividadesispc.git
 
 
 
