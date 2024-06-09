@@ -25,8 +25,6 @@ Al agregar le permitira al usuario agregar un elemento nuevo a la base de datos
 
 Y al modificar le permitira modificar alguno de los elementos existentes e incluso eliminarlos (para esto ultimo la intencion es crear usuarios con mayores credenciales que podrian ser un director o jefe de taller, para que solos ellos puedan dar de baja un elemento de la base de datos, para evitar las perdidas de los registros de los mismos)
 
-
-
 ## **MODULOS QUE LO INTEGRAN**
 
 * Inventario_IPET: Modulo principal o index nucleo del programa
@@ -34,7 +32,8 @@ Y al modificar le permitira modificar alguno de los elementos existentes e inclu
 * Menus: Modulo que integra la funcionalidad del menu principal
 * Visualizacion: Modulo que integra las funciones correspondiente a visualisar elementos de la Base de datos
 * Agregar: Modulo que integra las funciones correspondietes al agregado de elementos a la Base de datos
-
+* Login: Modulo que integra las funciones correspondientes a el login de usuarios
+* Modificar: Modulo que integra las funciones correspondientes a la modificacion de los elementos de la Base de Datos
 
 ### Inventario_IPET.py
 
@@ -47,8 +46,6 @@ Importamos la funcion sleep(tiempo_en_segundos) para hacer un standby en la ejec
 Y a la funcion system("cls") la utilizamos para limpiar la consola y dar una imagen mas limpia.
 
 Estas dos funciones integradas las utilizamos a lo largo de todos los modulos
-
-
 
 ### Bienvenida.py
 
@@ -70,11 +67,7 @@ Esta funcion integra una serie de print() para dar un mensaje de bienvenida, sol
 
 Esta funcion integra una serie de print() para dar un mensaje de despedida, solicita por parametro el ingreso de un string para dar un mensaje de despedida personalizado al profesor
 
-
-
 ### Menus.py
-
-
 
 Defina una sola funcion
 
@@ -95,12 +88,9 @@ Seguido a esto se le pide al usuario que elija una opcion por consola y un condi
 4. Cierra el programa
 5. En caso de que se seleccione alguna opcion no correcta (numerica) el programa repetira el menu (esta en desarrollo en el caso que el usuario coloque una letra o cualquier otra cosa)
 
-
-
 ### visualizacion.py
 
-
-En este modulo estan definidas las funciones 
+En este modulo estan definidas las funciones
 
 * visualizar_elementos()
 * visualizar_info(tipo)
@@ -108,7 +98,6 @@ En este modulo estan definidas las funciones
 * delay()
 
 Dentro del modulo importamos el modulo Menus.py y de los modulos random.py a randint() y de os.py a system("cls")
-
 
 ##### visualizar_elementos()
 
@@ -124,9 +113,7 @@ Se le muestran opciones al usuario y un match-case toma desiciones en base a est
 4. Insumos
 5. Menu Principal (esta opcion es la 0)
 
-Para los cuatro primeros casos llama a la funcion visualizar_info() ingresando por argumento un string con el tipo de recurso a visualizar, para la quinta opcion muestra mensaje de "opcion incorrecta" y retorna a inicio de la funcion
-
-
+Para los cuatro primeros casos llama a la funcion visualizar_info() ingresando por argumento un string con el tipo de recurso a visualizar, para la quinta opcion retorna a el menu principal a traves de la funcion menu_principal(), en el caso que no se ingrese ningun valor numerico coincidente muestra mensaje de "opcion incorrecta" y retorna a inicio de la funcion (aun se trabaja para el caso de ingresar un caracter de otro tipo)
 
 ##### visualizar_info(tipo)
 
@@ -142,24 +129,19 @@ En la segunda opcion de Elemento unico la funcion le pide al usuario el id del e
 
 Por ultimo le permite al usuario volver al menu anterior a travez de la funcion visualizar_elementos()
 
-
 ##### listado_completo(tipo)
 
 Esta funcion es una funcion de consulta de base de datos, actualmente solo muestra un listado aleatorio de elementos a modo de ejemplo
-
 
 ##### delay():
 
 Esta funcion integra simplemente un input que no va a ninguna variable, para esperar a que el usuario presione ENTER para continuar, su uso es principalmente reducir largo de la funcion originar a al hora de programar, estetica y orden del codigo
 
-
-
 ### Agregar.py
-
 
 Este modulo es un modulo ligado a la Base de datos el cual debe tener como principal funcion el agregado o alta de recursos en esta (instancias de las entidades)
 
-Define 5 funciones 
+Define 5 funciones
 
 * agregado()
 * ag_info()
@@ -167,9 +149,7 @@ Define 5 funciones
 * ag_eq()
 * ag_ins()
 
-
 ##### agregado()
-
 
 Funcion que no requiere parametros en el argumento, esta funcion cumple la tarea de un sub menu dedicada a agregar elementos a la base de datos.
 
@@ -183,14 +163,51 @@ Se le muestran opciones al usuario y un match-case toma desiciones en base a est
 4. Insumos
 5. Menu Principal (esta opcion es la 0)
 
-
 Para cada caso la funcion llama a las funciones ag_info() ag_herr() ag_eq() ag_ins() las cuales son las encargadas de agregar los elementos correspondientes a la Base de datos
 
 Para el ultimo caso retona al menu principal a partir de la funcion Menus.menu_principal
 
 Para cualquier otro caso numerico la funcion repite la funcion agregado() junto con un mensaje de opcion invalida (aun en desarrollo en caso que el usuario ingrese letra o algun otro)
 
-
 ##### ag_info() ag_herr() ag_eq() ag_ins()
 
 Estas funciones estan en desarrollo, trabajarian de manera similiar, solamente que cada una especificamente para cada tipo de elemento a agregar, dado que unos tiene atributos diferentes a los demas, son funciones vinculativas a la Base de datos, pero por el momento solamente son funciones de ejemplo que solicitan valores random al usuario y muestran un mensaje por consola
+
+
+### Modificar.py
+
+Este modulo estaria ligado a la base de datos y nos permitiria modificar o eliminar recursos del inventario de la base de datos.
+
+Integra dos funciones:
+
+* modificacion()
+* consulta()
+
+
+##### modificacion()
+
+Funcion que no requiere parametros en el argumento, esta funcion cumple la tarea de un sub menu dedicada a agregar elementos a la base de datos.
+
+Su operacion es similar a la funcion menu_principal del modulo Menus.py
+
+Se le muestran opciones al usuario y un match-case toma desiciones en base a esta opcion:
+
+1. Recursos Informaticos
+2. Herramental
+3. Equipamiento
+4. Insumos
+5. Menu Principal (esta opcion es la 0)
+
+Para los cuatro primeros casos llama a la funcion consulta() ingresando por argumento un string con el tipo de recurso a visualizar, para la quinta opcion retorna a el menu principal a traves de la funcion menu_principal(), en el caso que no se ingrese ningun valor numerico coincidente muestra mensaje de "opcion incorrecta" y retorna a inicio de la funcion (aun se trabaja para el caso de ingresar un caracter de otro tipo)
+
+
+##### consulta(tipo)
+
+Funcion asociada a la base de datos, estaria encargada de modificar o eliminar, actualmente esta integrada por un match-case con tres opciones
+
+
+* Modificiar
+* Eliminar
+* Volver atras
+
+Actualmente en los dos primeros casos la funcion solo pide un valor de ID para interactuar con el usuario y realiza una serie de print() con la finalidad de emitir mensajes de prueba
