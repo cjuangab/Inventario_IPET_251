@@ -2,7 +2,7 @@ from visualizacion import visualizar_elementos
 from Agregar import agregado
 from os import system               #Importamos del modulo os la funcion system("cls") para poder borrar la consola
 from time import sleep              #Importamos del modulo time la funcion sleep() que nos permite realizar un retraso en el sistema
-
+from Modificar import modificacion
 
 def menu_principal():
     op_menu=99
@@ -20,7 +20,7 @@ def menu_principal():
         case 2:
             agregado()
         case 3:
-            print("Modificar")
+            modificacion()
         case 0:
             exit
         case _:
