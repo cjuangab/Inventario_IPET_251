@@ -27,7 +27,7 @@ Y al modificar le permitira modificar alguno de los elementos existentes e inclu
 
 
 
-## **[MODULOS QUE LO INTEGRAN]()**
+## **MODULOS QUE LO INTEGRAN**
 
 * Inventario_IPET: Modulo principal o index nucleo del programa
 * Bienvenida: Modulo que integra las funciones de bienvenida y despedida del programa
@@ -95,6 +95,7 @@ Seguido a esto se le pide al usuario que elija una opcion por consola y un condi
 4. Cierra el programa
 5. En caso de que se seleccione alguna opcion no correcta (numerica) el programa repetira el menu (esta en desarrollo en el caso que el usuario coloque una letra o cualquier otra cosa)
 
+![1717948087712](image/README/1717948087712.png)
 
 
 ### visualizacion.py
@@ -108,7 +109,6 @@ En este modulo estan definidas las funciones
 * delay()
 
 Dentro del modulo importamos el modulo Menus.py y de los modulos random.py a randint() y de os.py a system("cls")
-
 
 ##### visualizar_elementos()
 
@@ -126,7 +126,7 @@ Se le muestran opciones al usuario y un match-case toma desiciones en base a est
 
 Para los cuatro primeros casos llama a la funcion visualizar_info() ingresando por argumento un string con el tipo de recurso a visualizar, para la quinta opcion muestra mensaje de "opcion incorrecta" y retorna a inicio de la funcion
 
-
+![1717948105700](https://file+.vscode-resource.vscode-cdn.net/d%3A/ISPC/Trabajo_Integrador/Inventario_IPET_251/image/README/1717948105700.png)
 
 ##### visualizar_info(tipo)
 
@@ -190,6 +190,7 @@ Para el ultimo caso retona al menu principal a partir de la funcion Menus.menu_p
 
 Para cualquier otro caso numerico la funcion repite la funcion agregado() junto con un mensaje de opcion invalida (aun en desarrollo en caso que el usuario ingrese letra o algun otro)
 
+![1717948136597](image/README/1717948136597.png)
 
 ##### ag_info() ag_herr() ag_eq() ag_ins()
 
