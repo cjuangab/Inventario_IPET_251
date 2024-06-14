@@ -69,9 +69,7 @@ CREATE TABLE IF NOT EXISTS `inventario_ipet251`.`Materia` (
   CONSTRAINT `fk_Materia_Profesor`
     FOREIGN KEY (`Profesor_dni`)
     REFERENCES `inventario_ipet251`.`Profesor` (`dni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  );
 
 
 -- -----------------------------------------------------
@@ -86,17 +84,13 @@ CREATE TABLE IF NOT EXISTS `inventario_ipet251`.`Informaticos` (
   `n_serie_sec` VARCHAR(25) NULL,
   `origen` VARCHAR(10) NOT NULL,
   `estado` VARCHAR(10) NOT NULL,
-  `asignado` VARCHAR(15) NOT NULL,
-  `observaciones` VARCHAR(45) NULL,
   `Laboratorio_idlaboratorio` INT NOT NULL,
   PRIMARY KEY (`idinformaticos`),
   INDEX `fk_Informaticos_Laboratorio1_idx` (`Laboratorio_idlaboratorio` ASC) VISIBLE,
   CONSTRAINT `fk_Informaticos_Laboratorio1`
     FOREIGN KEY (`Laboratorio_idlaboratorio`)
     REFERENCES `inventario_ipet251`.`Laboratorio` (`idlaboratorio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  );
 
 
 -- -----------------------------------------------------
@@ -110,21 +104,17 @@ CREATE TABLE IF NOT EXISTS `inventario_ipet251`.`Equipamiento` (
   `modelo` VARCHAR(15) NOT NULL,
   `num_serie` VARCHAR(25) NOT NULL,
   `descripcion` VARCHAR(45) NOT NULL,
-  `origen` VARCHAR(10) NOT NULL,
-  `estado` VARCHAR(10) NOT NULL,
+
   `fecha_calibracion` DATETIME NOT NULL,
-  `asignado` VARCHAR(15) NULL,
-  `asignado` VARCHAR(15) NOT NULL,
-  `observaciones` VARCHAR(45) NULL,
+
   `Laboratorio_idlaboratorio` INT NOT NULL,
   PRIMARY KEY (`idEquipamiento`),
   INDEX `fk_Equipamiento_Laboratorio1_idx` (`Laboratorio_idlaboratorio` ASC) VISIBLE,
   CONSTRAINT `fk_Equipamiento_Laboratorio1`
     FOREIGN KEY (`Laboratorio_idlaboratorio`)
     REFERENCES `inventario_ipet251`.`Laboratorio` (`idlaboratorio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+);
+
 
 
 -- -----------------------------------------------------
@@ -137,19 +127,18 @@ CREATE TABLE IF NOT EXISTS `inventario_ipet251`.`Herramental` (
   `modelo` VARCHAR(15) NOT NULL,
   `num_serie` VARCHAR(25) NOT NULL,
   `uso` VARCHAR(10) NOT NULL,
-  `origen` VARCHAR(10) NOT NULL,
+
   `estado` VARCHAR(10) NOT NULL,
-  `asignado` VARCHAR(15) NOT NULL,
-  `observaciones` VARCHAR(45) NULL,
+
+
   `Laboratorio_idlaboratorio` INT NOT NULL,
   PRIMARY KEY (`idHerramental`),
   INDEX `fk_Herramental_Laboratorio1_idx` (`Laboratorio_idlaboratorio` ASC) VISIBLE,
   CONSTRAINT `fk_Herramental_Laboratorio1`
     FOREIGN KEY (`Laboratorio_idlaboratorio`)
     REFERENCES `inventario_ipet251`.`Laboratorio` (`idlaboratorio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  );
+
 
 
 -- -----------------------------------------------------
@@ -164,17 +153,14 @@ CREATE TABLE IF NOT EXISTS `inventario_ipet251`.`Insumos` (
   `unidad` VARCHAR(5) NULL,
   `origen` VARCHAR(15) NOT NULL,
   `vencimiento` DATETIME NULL,
-  `asignado` VARCHAR(15) NOT NULL,
-  `observaciones` VARCHAR(45) NULL,
+  'estado' VARCHAR(15),
   `Laboratorio_idlaboratorio` INT NOT NULL,
   PRIMARY KEY (`idInsumos`),
   INDEX `fk_Insumos_Laboratorio1_idx` (`Laboratorio_idlaboratorio` ASC) VISIBLE,
   CONSTRAINT `fk_Insumos_Laboratorio1`
     FOREIGN KEY (`Laboratorio_idlaboratorio`)
     REFERENCES `inventario_ipet251`.`Laboratorio` (`idlaboratorio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  );
 
 USE `inventario_ipet251` ;
 
