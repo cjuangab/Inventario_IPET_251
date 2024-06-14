@@ -4,6 +4,8 @@ Integrante n° 1: Cabrera Juan Gabriel, DNI: 39.448.561, cabrerajuangab@gmail.co
 
 Integrante n°2: Santarena Maria Florencia, DNI: 38.909.688, florsantarena@gmail.com, https://github.com/mfsantarena/actividadesispc.git
 
+LINK VIDEO https://youtu.be/Xxu74rx8i68
+
 El siguiente programa tiene como objetivo inventariar los recursos educativos con los que cuentan los docentes del IPET 251.
 
 En primera instancia el usuario (docente de cada laboratorio) podra acceder a un menu (probablemente por consola) Donde podra:
