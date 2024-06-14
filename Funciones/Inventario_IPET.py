@@ -10,7 +10,7 @@ system("cls")                           #Borrado automatico de consola
 bienvenida()                            #Funcion de bienvenida a sistema
 
 prof, contra = login()                  #Llamamos a la funcion login() y recuperamos el usuario y contraseña
-sleep(1.5)                                #Establecemos un delay para que se pueda leer el mensaje
+sleep(1.5)                              #Establecemos un delay para que se pueda leer el mensaje
 
 system("cls")                           
 bienvenida_prof(prof)                   #Llamamos a la funcion importada saludo_prof para dar una bienvenida
