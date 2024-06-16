@@ -1,5 +1,6 @@
+USE inventario_ipet251;
 SELECT * FROM inventario_ipet251.laboratorio;
-INSERT INTO Laboratorio VALUES ('6','instrumental','20','9');
+INSERT INTO Laboratorio VALUES ('2','instrumental','20','9');
 SELECT * FROM Laboratorio
 SELECT * FROM Laboratorio
 UPDATE Laboratorio SET nombre='chapisteria' WHERE idlaboratorio=6;

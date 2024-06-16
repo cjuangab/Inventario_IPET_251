@@ -41,50 +41,57 @@ def agregado():
 
 
 
-def ag_info():                              #Funcion en construccion, vinculacion con BDD
-    id = int(input("ID de elemento: "))
-    a = input("Tipo de elemento: ")
+def ag_info():
+    a = input("Tipo: ")
     b = input("Marca: ")
-    c = input("Numero de serie: ")
+    c = input("Número de serie: ")
+    d = input("Modelo: ") 
+    e = input("Número de serie secundario: ")
+    f = input("Origen: ")
+    g = input("Estado: ")
     
+
     try:
         conec = conexion()
         cursor = conec.cursor()
-        sql = "insert into informaticos values(null,%s,%s,null,%s);"
-        valores = (a,b,c)
-        cursor.execute(sql,valores)
+        sql = """
+        INSERT INTO informaticos (tipo, marca, modelo, n_serie, n_serie_sec, origen, estado, Laboratorio_idlaboratorio) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+        """
+        valores = (a, b, d, c, e, f, g, 1)
+        cursor.execute(sql, valores)
         conec.commit()
-        print(cursor.rowcount,"Registro ingresado")
+        print(cursor.rowcount, "Registro ingresado")
         conec.close()
     except mysql.connector.Error as e:
         print(f"Error {e}")
-    
+    sleep(1)
     agregado() 
 
-def ag_herr():                              #Funcion en construccion, vinculacion con BDD
-    id = int(input("ID de Herramienta: "))
+def ag_herr():                              # Función en construcción, vinculación con BDD
     a = input("Tipo de Herramienta: ")
     b = input("Marca: ")
     c = input("Número de serie: ")
-    g = "0"
+    g = "0" 
+    
     try:
         conec = conexion()
         cursor = conec.cursor()
-        sql = "INSERT INTO herramental(idHerramental, tipo, marca, modelo, num_serie,uso,estado,Laboratorio_idlaboratorio) VALUES (%s, %s, %s, %s,%s,%s,%s,%s)"
-        valores = (id, a, b,g, c,g,g,1)
+        sql = "INSERT INTO herramental (tipo, marca, modelo, num_serie, uso, estado, Laboratorio_idlaboratorio) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        valores = (a, b, g, c, g, g, 1)
         cursor.execute(sql, valores)
         conec.commit()
-        conec.close()
         print(cursor.rowcount, "Registro ingresado")
+        conec.close()
     except mysql.connector.Error as e:
+        # Mostrar mensaje de error
         print(f"Error {e}")
 
 
     sleep(5)
     agregado() 
 
-def ag_eq():                              #Funcion en construccion, vinculacion con BDD
-    id = int(input("ID de Equipo: "))
+def ag_eq():  # Función en construcción, vinculación con BDD
     a = input("Tipo de elemento: ")
     b = input("Marca: ")
     c = input("Numero de serie: ")
@@ -93,33 +100,45 @@ def ag_eq():                              #Funcion en construccion, vinculacion 
     try:
         conec = conexion()
         cursor = conec.cursor()
-        sql = "insert into equipamiento values(%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-        valores = (id,a,g,b,c,g,'2099-12-31',1)
-        cursor.execute(sql,valores)
+        
+        sql = "INSERT INTO equipamiento (tipo, uso, marca, num_serie, fecha_calibracion, Laboratorio_idlaboratorio) VALUES (%s, %s, %s, %s, %s, %s);"
+
+        
+        # Proporcionar los valores correspondientes a las columnas especificadas
+        valores = (a, g, b, c,'2099-12-31', 1)
+        
+        cursor.execute(sql, valores)
         conec.commit()
-        print(cursor.rowcount,"Registro ingresado")
+        
+        print(cursor.rowcount, "Registro ingresado")
         conec.close()
+        
     except mysql.connector.Error as e:
         print(f"Error {e}")
-    agregado() 
+    
+    sleep(3)
+    agregado()
+
 
 def ag_ins():                              #Funcion en construccion, vinculacion con BDD
     a = input("Tipo de elemento: ")
     b = input("Marca: ")
     c = int(input("Cantidad de insumos: "))
+    d = input("Unidad: ")
     
     try:
         conec = conexion()
         cursor = conec.cursor()
-        sql = "insert to insumos values(null,%s,%s,null,%s);"
-        valores = (a,b,c)
+        sql = "INSERT INTO insumos (tipo, marca, cantidad, unidad, vencimiento, estado, Laboratorio_idlaboratorio) VALUES (%s, %s, %s, %s, %s, %s, %s);"
+        valores = (a, b, c, d, '2099-12-31', "servicio", 1)
         cursor.execute(sql,valores)
         conec.commit()
         print(cursor.rowcount,"Registro ingresado")
     except mysql.connector.Error as e:
         print(f"Error {e}")
+    sleep(3)
     agregado() 
-
+    
 #agregado()
 
         
